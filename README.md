@@ -1,2 +1,2 @@
 # kiss-usmarketcalendar
-KISS (Keep It Simple Stupid) US Market Calendar is a Java 9 library that allows users to easily detect when the US stock/futures market is closed or open
+KISS (Keep It Simple Stupid) US Market Calendar is a simple Java 9 library that allows users to pass in LocalDate/LocalDateTime objects to determine if they are valid trading dates (ie markets are open)
