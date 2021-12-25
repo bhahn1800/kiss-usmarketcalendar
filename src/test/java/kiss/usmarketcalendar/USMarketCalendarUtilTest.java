@@ -66,7 +66,7 @@ public class USMarketCalendarUtilTest {
     @Test
     public void rollForward() {
         LocalDate christmasDay = USMarketCalendarUtil.christmasDay(2021);
-        LocalDateTime endTime = USMarketCalendarUtil.rollForward(USMarketCalendarUtil.ProductType.FUTURES, christmasDay, 1);
+        LocalDate endTime = USMarketCalendarUtil.rollForward(USMarketCalendarUtil.ProductType.FUTURES, christmasDay, 1);
         assertNotNull(endTime);
         assertEquals(endTime.getDayOfWeek(), DayOfWeek.MONDAY);
     }
@@ -74,7 +74,7 @@ public class USMarketCalendarUtilTest {
     @Test
     public void rollBackward() {
         LocalDate christmasDay = USMarketCalendarUtil.christmasDay(2021);
-        LocalDateTime endTime = USMarketCalendarUtil.rollBackward(USMarketCalendarUtil.ProductType.FUTURES, christmasDay, 1);
+        LocalDate endTime = USMarketCalendarUtil.rollBackward(USMarketCalendarUtil.ProductType.FUTURES, christmasDay, 1);
         assertNotNull(endTime);
         assertEquals(endTime.getDayOfWeek(), DayOfWeek.THURSDAY);
     }
