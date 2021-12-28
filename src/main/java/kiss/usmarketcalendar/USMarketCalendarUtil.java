@@ -145,6 +145,10 @@ public final class USMarketCalendarUtil {
         return localDateTime;
     }
 
+    public static LocalDate rollForward(ProductType productType, LocalDate localDate) {
+        return rollForward(productType, localDate.atStartOfDay(), 1).toLocalDate();
+    }
+
     public static LocalDate rollForward(ProductType productType, LocalDate localDate, final Integer numDays) {
         return rollForward(productType, localDate.atStartOfDay(), numDays).toLocalDate();
     }
@@ -161,6 +165,10 @@ public final class USMarketCalendarUtil {
         }
 
         return localDateTime.withHour(18).withMinute(0).withSecond(0).withNano(0);
+    }
+
+    public static LocalDate rollBackward(ProductType productType, LocalDate localDate) {
+        return rollBackward(productType, localDate.atStartOfDay(), 1).toLocalDate();
     }
 
     public static LocalDate rollBackward(ProductType productType, LocalDate localDate, final Integer numDays) {
