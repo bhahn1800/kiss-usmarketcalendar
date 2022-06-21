@@ -37,6 +37,8 @@ public final class USMarketCalendarUtil {
         if (presidentsDay(year).isEqual(localDate)) return true;
         if (goodFriday(year).isEqual(localDate)) return true;
         if (memorialDay(year).isEqual(localDate)) return true;
+        if (juneteenth(year).isEqual(localDate)) return true;
+        if (juneteenthWeekday(year).isEqual(localDate)) return true;
         if (independenceDay(year).isEqual(localDate)) return true;
         if (independenceDayWeekday(year).isEqual(localDate)) return true;
         if (laborDay(year).isEqual(localDate)) return true;
@@ -94,6 +96,14 @@ public final class USMarketCalendarUtil {
                 TemporalAdjusters.lastInMonth(DayOfWeek.MONDAY));
     }
 
+    public static LocalDate juneteenth(int year) {
+        return LocalDate.of(year, Month.JUNE, 19);
+    }
+
+    public static LocalDate juneteenthWeekday(int year) {
+        return adjustForWeekendHoliday(juneteenth(year));
+    }
+
     public static LocalDate independenceDay(int year) {
         return LocalDate.of(year, Month.JULY, 4);
     }
@@ -144,7 +154,7 @@ public final class USMarketCalendarUtil {
 
         return localDateTime;
     }
-
+    
     public static LocalDate rollForward(ProductType productType, LocalDate localDate) {
         return rollForward(productType, localDate.atStartOfDay(), 1).toLocalDate();
     }
